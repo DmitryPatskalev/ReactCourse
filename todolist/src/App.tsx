@@ -9,7 +9,7 @@ const task1 = [
 ];
 const task2 = [
   { id: 1, title: "HelloWorld", isDone: true },
-  { id: 2, title: "I'am happy", isDone: false },
+  { id: 2, title: "I am happy", isDone: false },
   { id: 3, title: "Dude", isDone: false },
 ];
 
@@ -18,6 +18,7 @@ function App() {
     <div className="App">
       <Todolist title="What I Learn" tasks={task1} />
       <Todolist title="Hello!" tasks={task2} />
+      <Todolist title="Good day!" tasks={task2} />
     </div>
   );
 }
