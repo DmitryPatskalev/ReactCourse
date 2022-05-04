@@ -1,7 +1,12 @@
 import React from "react";
 import './style.css'
 
-const StarValue = (props: any) => {
+type StarValueType = {
+    value:number
+}
+
+
+const StarValue: React.FC<StarValueType> = (props) => {
     if (props.value === 1) {
         return <div>
             <Star selected={true}/>

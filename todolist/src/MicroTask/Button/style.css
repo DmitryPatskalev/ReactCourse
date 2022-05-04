@@ -1,0 +1,11 @@
+.body{
+    text-align: center;
+    margin: 100px;
+
+}
+.button button {
+    padding: 10px;
+    margin: 10px;
+    background-color:  yellow;
+    border-radius: 10px;
+}
