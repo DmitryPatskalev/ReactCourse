@@ -6,12 +6,14 @@ import * as serviceWorker from './serviceWorker';
 import StarRating from "./Traning/StarRating";
 import Button from "./MicroTask/Button/Button";
 import Task from "./MicroTask/Input/Task";
+import Todolist from "./MicroTask/Todolist/Todolist";
 
 ReactDOM.render(
   // <App />,
 // <StarRating/>,
 //   <Button/>,
-<Task/>,
+// <Task/>,
+<Todolist/>,
   document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

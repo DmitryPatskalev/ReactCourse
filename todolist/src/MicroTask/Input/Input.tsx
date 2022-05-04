@@ -6,6 +6,7 @@ type InputType = {
     setTask:(task:string)=>void
 }
 
+
 export const Input = (props:InputType) => {
     let onChangeHundler = (event:ChangeEvent<HTMLInputElement>)=>{
         props.setTask(event.currentTarget.value)
