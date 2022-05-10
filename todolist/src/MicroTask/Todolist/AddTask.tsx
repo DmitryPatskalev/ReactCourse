@@ -1,28 +1,35 @@
-import React, {ChangeEvent, useState} from "react";
-import {Input} from "./Input";
-import {Button} from "./Button";
+import React, {ChangeEvent, KeyboardEvent, useState} from "react";
 
-let list: Array<string> = []
+type AddTaskType = {
+    addTasks: (title: string) => void
+}
 
-export const AddTask = ()=>{
-    const [input, setInput] = useState(list)
+export const AddTask = (props: AddTaskType) => {
     const [message, setMessage] = useState('')
-    let result = input.map((elem, index)=>{
-        return <p key={index}>{elem}</p>
-    })
 
-    let addMessage = (message:string)=>{
-        setInput([message,...input])
+    let onChangeHundler = (event: ChangeEvent<HTMLInputElement>) => {
+        setMessage(event.currentTarget.value)
     }
 
-    let callbackButton = ()=>{
-        addMessage(message)
+    let onPressKeyHundler = (event: KeyboardEvent<HTMLInputElement>) => {
+        if (event.charCode === 13) {
+            props.addTasks(event.currentTarget.value)
+            setMessage('')
+        }
+    }
+    let onClickHundler = () => {
+        props.addTasks(message)
         setMessage('')
     }
 
     return <div>
-        <Input message={message} setMessage={setMessage}/>
-        <Button name='+' callback={callbackButton}/>
-        {result}
+        <input
+          value={message}
+          onChange={onChangeHundler}
+          onKeyPress={onPressKeyHundler}
+        />
+        <button onClick={onClickHundler}>+</button>
+
     </div>
 }
+export default AddTask

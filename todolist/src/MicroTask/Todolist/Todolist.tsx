@@ -1,38 +1,49 @@
 import React, {useState} from "react";
 import {Tasks} from "./Tasks";
 import './../../App.css'
+import {v1} from "uuid";
+
 
 export type Todolist = {
-    id: number
+    id: string
     tech: string
     isDone: boolean
 }
-export type FilterType = 'All'| 'Active' | 'Checked'
-
+export type FilterType = 'All' | 'Active' | 'Checked'
 
 const Todolist = () => {
     let tasks: Array<Todolist> = [
-        {id: 1, tech: 'JS', isDone: true},
-        {id: 2, tech: 'React', isDone: true},
-        {id: 3, tech: 'C++/C#', isDone: false},
-        {id: 4, tech: 'Python', isDone: false},
+        {id: v1(), tech: 'JS', isDone: true},
+        {id: v1(), tech: 'React', isDone: true},
+        {id: v1(), tech: 'C++/C#', isDone: false},
+        {id: v1(), tech: 'Python', isDone: false},
+        {id: v1(), tech: 'CSS/HTML', isDone: true},
     ]
     const [task, setTask] = useState(tasks)
     const [filter, setFilter] = useState('All')
 
-    let buttonRemoveTask = (id:number)=>{
-        let removeTask = task.filter(elem=>elem.id !== id)
+    let buttonRemoveTask = (id: string) => {
+        let removeTask = task.filter(elem => elem.id !== id)
         setTask(removeTask)
     }
     let filterTask = task
-    if(filter === 'Active'){
-        filterTask = task.filter(elem=>elem.isDone)
+    if (filter === 'Active') {
+        filterTask = task.filter(elem => elem.isDone)
     }
-    if(filter === 'Checked'){
-        filterTask = task.filter(elem=>!elem.isDone)
+    if (filter === 'Checked') {
+        filterTask = task.filter(elem => !elem.isDone)
     }
-    let onClickHundler = (name:string)=>{
+    let onClickHundler = (name: string) => {
         setFilter(name)
+    }
+
+    let addTasks = (title:string)=>{
+        let addTask = {
+            id:v1(),
+            tech:title,
+            isDone:true
+        }
+        setTask([addTask,...task])
     }
 
     return <div className='App'>
@@ -40,6 +51,7 @@ const Todolist = () => {
                title='What I Learn'
                buttonRemoveTask={buttonRemoveTask}
                onClickHundler={onClickHundler}
+               addTasks={addTasks}
         />
     </div>
 }

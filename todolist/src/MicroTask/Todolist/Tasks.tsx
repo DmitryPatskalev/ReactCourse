@@ -1,14 +1,15 @@
 import React from "react";
 import {FilterType, Todolist} from "./Todolist";
-import {AddTask} from "./AddTask";
+import AddTask from "./AddTask";
+import FilterButtonTask from "./FilterButtonTask";
 
 type TasksType = {
     task: Todolist[]
     title:string
-    buttonRemoveTask:(id:number)=>void
+    buttonRemoveTask:(id:string)=>void
     onClickHundler:(name:FilterType)=>void
+    addTasks:(title:string)=>void
 }
-
 
 export const Tasks = (props:TasksType)=>{
     let listOfTasks = props.task.map((elem, index)=>{
@@ -23,12 +24,10 @@ export const Tasks = (props:TasksType)=>{
 
     return <div>
         <h3>{props.title}</h3>
-        <AddTask/>
+        <AddTask addTasks={props.addTasks}/>
         {listOfTasks}
         <div>
-            <button onClick={()=>(props.onClickHundler('All'))}>All</button>
-            <button onClick={()=>(props.onClickHundler('Active'))}>Active</button>
-            <button onClick={()=>(props.onClickHundler('Checked'))}>Checked</button>
+            <FilterButtonTask onClickHundler={props.onClickHundler}/>
         </div>
     </div>
 }
