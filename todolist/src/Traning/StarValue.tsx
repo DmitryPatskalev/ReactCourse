@@ -8,6 +8,7 @@ type StarValueType = {
 
 const StarValue = (props: StarValueType) => {
 
+
     return <div>
         <Star selected={props.value > 0}/>
         <Star selected={props.value > 1}/>
@@ -21,13 +22,10 @@ const StarValue = (props: StarValueType) => {
 export default StarValue
 
 type StarType = {
-    selected: any
+    selected: boolean
 }
 const Star = (props: StarType) => {
-    if (props.selected === true) {
-        return <span><button className='button1'></button></span>
-    } else {
-        return <span><button className='button2'></button></span>
-    }
-
+    return props.selected ?
+      <span><button className='button1'></button></span> :
+      <span><button className='button2'></button></span>
 }

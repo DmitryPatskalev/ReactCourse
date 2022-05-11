@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import StarValue from "./StarValue";
-import OnOff from "./OnOff/OnOff";
-import SwitchButton from "./OnOff/SwitchButton";
+
+import SwitchButton from "../ReactKabzda/06_UseState/SwitchButton";
 
 
 
 const StarRating = () => {
+
+
     return <div>
         <h1>Rating</h1>
         <StarValue value={0}/>
@@ -14,10 +16,8 @@ const StarRating = () => {
         <StarValue value={3}/>
         <StarValue value={4}/>
         <StarValue value={5}/>
-        <hr/>
-        <OnOff/>
-        <hr/>
-        <SwitchButton/>
+
+        {/*<SwitchButton/>*/}
 
     </div>
 }
