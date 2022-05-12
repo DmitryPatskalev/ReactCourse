@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import './style.css'
 
 
@@ -25,7 +25,15 @@ type StarType = {
     selected: boolean
 }
 const Star = (props: StarType) => {
-    return props.selected ?
-      <span><button className='button1'></button></span> :
-      <span><button className='button2'></button></span>
+    if (props.selected) {
+        return <span>
+            <button className='button1'></button>
+        </span>
+    } else {
+        return <span>
+            <button className='button2'></button>
+        </span>
+    }
+
+
 }
