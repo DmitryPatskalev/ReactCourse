@@ -46,12 +46,21 @@ const Todolist = () => {
         setTask([addTask,...task])
     }
 
+    let changeStatus = (taskId:string, isDone:boolean)=>{
+        let changedTask = task.find(t=>t.id === taskId)
+        if(changedTask){
+            changedTask.isDone = isDone
+        }
+        setTask([...task])
+    }
+
     return <div className='App'>
         <Tasks task={filterTask}
                title='What I Learn'
                buttonRemoveTask={buttonRemoveTask}
                onClickHundler={onClickHundler}
                addTasks={addTasks}
+               changeStatus={changeStatus}
         />
     </div>
 }

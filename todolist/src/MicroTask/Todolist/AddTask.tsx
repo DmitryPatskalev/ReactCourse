@@ -2,6 +2,7 @@ import React, {ChangeEvent, KeyboardEvent, useState} from "react";
 
 type AddTaskType = {
     addTasks: (title: string) => void
+
 }
 
 export const AddTask = (props: AddTaskType) => {

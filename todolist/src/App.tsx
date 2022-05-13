@@ -8,12 +8,12 @@ import Callback from "./Native/06_Callback/Callback";
 function App() {
   return (
     <div className="App">
-        {/*<Todolist/>*/}
-        <OnOff/>
-        <hr/>
-        <StarRating/>
-        <hr/>
-        <Callback/>
+        <Todolist/>
+        {/*<OnOff/>*/}
+        {/*<hr/>*/}
+        {/*<StarRating/>*/}
+        {/*<hr/>*/}
+        {/*<Callback/>*/}
 
     </div>
   );
