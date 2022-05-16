@@ -2,6 +2,7 @@ import React, {ChangeEvent} from "react";
 import {FilterType, Todolist} from "./Todolist";
 import AddTask from "./AddTask";
 import FilterButtonTask from "./FilterButtonTask";
+import './style.css'
 
 
 type TasksType = {
@@ -19,10 +20,10 @@ export const Tasks = (props:TasksType)=>{
         let onChangeTaskHundler = (event:ChangeEvent<HTMLInputElement>)=>{
             props.changeStatus(elem.id, event.currentTarget.checked)
         }
-        return <ul>
-            <li key={index}>
+        return <ul className={elem.isDone? 'isDone':''} key={index}>
+            <li >
                 <input type='checkbox' onChange={onChangeTaskHundler} checked={elem.isDone}/>{elem.tech}
-                <span><button onClick={remove}>x</button></span>
+                <span><button className='button-remove' onClick={remove}>x</button></span>
             </li>
         </ul>
     })

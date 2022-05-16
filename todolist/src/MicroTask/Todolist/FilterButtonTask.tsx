@@ -18,9 +18,9 @@ const FilterButtonTask = (props:FilterButtonTaskType) => {
     }
 
     return <div>
-        <button onClick={buttonShowAll}>All</button>
-        <button onClick={buttonShowActive}>Active</button>
-        <button onClick={buttonShowChecked}>Checked</button>
+        <button className='showAll' onClick={buttonShowAll}>All</button>
+        <button className='showActive' onClick={buttonShowActive}>Active</button>
+        <button className='showChecked' onClick={buttonShowChecked}>Checked</button>
     </div>
 }
 

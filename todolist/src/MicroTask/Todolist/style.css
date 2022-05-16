@@ -1,0 +1,28 @@
+.error {
+    border: 2px solid red;
+}
+.error-message {
+    color: red
+}
+.showAll:focus{
+    background-color: lightgreen;
+}
+.showActive:focus{
+    background-color: lightgreen;
+}
+.showChecked:focus{
+    background-color: lightgreen;
+}
+.showAll, .showActive, .showChecked{
+    margin: 5px;
+}
+.isDone{
+    opacity: 0.4;
+}
+.button-remove:hover{
+    background-color: red;
+}
+.button-remove{
+    margin: 5px;
+    border-radius: 10px;
+}

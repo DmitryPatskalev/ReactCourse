@@ -28,10 +28,10 @@ const Todolist = () => {
     }
     let filterTask = task
     if (filter === 'Active') {
-        filterTask = task.filter(elem => elem.isDone)
+        filterTask = task.filter(elem => !elem.isDone)
     }
     if (filter === 'Checked') {
-        filterTask = task.filter(elem => !elem.isDone)
+        filterTask = task.filter(elem => elem.isDone)
     }
     let onClickHundler = (name: string) => {
         setFilter(name)
