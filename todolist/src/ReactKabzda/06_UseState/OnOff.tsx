@@ -1,50 +1,46 @@
-import React, {useState} from "react";
+import React from "react";
 import ShowHide from "./ShowHide";
 
-export type OnOffType = {
-    // on: boolean
+
+type OnOffType = {
+    on: boolean
+    onChange: (on: boolean) => void
 }
-
-
 const OnOff = (props: OnOffType) => {
-    const [value, setValue] = useState(false)
-    let on
-    on = !value;
-
     const onStyle = {
         width: '40px',
         height: '20px',
         border: '1px solid black',
-        padding:'5px',
+        padding: '5px',
         margin: '10px',
-        display:'inline-block',
-        backgroundColor: on ?'lightgreen': 'white'
+        display: 'inline-block',
+        backgroundColor: props.on ? 'lightgreen' : 'white'
     }
     const offStyle = {
         width: '40px',
         height: '20px',
         border: '1px solid black',
-        padding:'5px',
+        padding: '5px',
         margin: '10px',
-        display:'inline-block',
-        backgroundColor:on ?'white': 'red'
+        display: 'inline-block',
+        backgroundColor: props.on ? 'white' : 'red'
     }
     const indicatorStyle = {
-        width:'30px',
-        height:'30px',
-        border:'1px solid black',
-        borderRadius:'15px',
+        width: '30px',
+        height: '30px',
+        border: '1px solid black',
+        borderRadius: '15px',
         margin: '10px',
-        display:'inline-block',
-        backgroundColor:on ?'lightgreen': 'red'
-
-
+        display: 'inline-block',
+        backgroundColor: props.on ? 'lightgreen' : 'red'
     }
-
+    let changeOn = () => props.onChange(true)
+    let changeOf = () => props.onChange(false)
     return <div>
-        <div style={onStyle} onClick={()=> setValue(false) }>ON</div>
-        <div style={offStyle} onClick={()=> setValue(true) }>OFF</div>
-        <div style={indicatorStyle}></div>
+        <div onClick={changeOn} style={onStyle}>ON</div>
+        <div onClick={changeOf} style={offStyle}>OFF</div>
+        <div style={indicatorStyle}>{props.on ? 'ON' : 'OFF'}</div>
+
         <hr/>
         <ShowHide/>
     </div>

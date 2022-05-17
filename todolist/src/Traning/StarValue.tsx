@@ -31,7 +31,9 @@ type StarType = {
 }
 
 const Star = (props:StarType) => {
- return <span onClick={()=> props.onClick(props.value)}>
+    let setStar = ()=> props.onClick(props.value)
+
+ return <span onClick={setStar}>
      {props.selected ? <button className={css.buttonOn}></button>:
      <button className={css.buttonOf}></button>
      }
