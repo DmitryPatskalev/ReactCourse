@@ -1,15 +1,15 @@
-.button1, .button2 {
+
+.buttonOn, .buttonOf{
     width: 30px;
     height: 30px;
-    border-radius: 50%;
-    padding: 10px;
     margin: 10px;
+    border-radius: 50%;
 }
 
-.button1 {
+.buttonOn{
     background-color: yellow;
 }
-
-.button2 {
+.buttonOf{
     background-color: white;
 }
+

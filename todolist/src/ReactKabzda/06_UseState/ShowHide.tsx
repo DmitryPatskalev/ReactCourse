@@ -28,9 +28,9 @@ const ShowHideMenu = () => {
         })
     }
     return <div>
-        <h3>List of name</h3>
+        <h3 onClick={() => setValue(!value)}>LIST</h3>
         <div>
-            <button onClick={() => setValue(!value)}>{value ? 'HIDE' : 'SHOW'}</button>
+
         </div>
         {result}
     </div>

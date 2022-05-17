@@ -1,21 +1,15 @@
 import React, {useState} from "react";
-import StarValue from "./StarValue";
-
-import SwitchButton from "../ReactKabzda/06_UseState/SwitchButton";
-
+import StarValue, {RatingValueType} from "./StarValue";
 
 
 const StarRating = () => {
+    const [rating, setRating] = useState<RatingValueType>(0)
 
 
-    return <div>
+    return <div >
         <h1>Rating</h1>
-        <StarValue value={0}/>
-        <StarValue value={1}/>
-        <StarValue value={2}/>
-        <StarValue value={3}/>
-        <StarValue value={4}/>
-        <StarValue value={5}/>
+        <StarValue value={rating} onClick={setRating} />
+
 
         {/*<SwitchButton/>*/}
 

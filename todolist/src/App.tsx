@@ -8,10 +8,10 @@ import Callback from "./Native/06_Callback/Callback";
 function App() {
   return (
     <div className="App">
-        <Todolist/>
-        {/*<OnOff/>*/}
+        {/*<Todolist/>*/}
+        <OnOff/>
         {/*<hr/>*/}
-        {/*<StarRating/>*/}
+        <StarRating/>
         {/*<hr/>*/}
         {/*<Callback/>*/}
 
