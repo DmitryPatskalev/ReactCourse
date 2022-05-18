@@ -1,18 +1,15 @@
 import React, {useState} from "react";
-import StarValue, {RatingValueType} from "./StarValue";
+import StarValue, { StarRatingType} from "./StarValue";
 
 
 const StarRating = () => {
-    const [rating, setRating] = useState<RatingValueType>(0)
-
+    const [rating, setRating] = useState<StarRatingType>(0)
 
     return <div >
-        <h1>Rating</h1>
+        <h3>Rating</h3>
         <StarValue value={rating} onClick={setRating} />
 
-
         {/*<SwitchButton/>*/}
-
     </div>
 }
 export default StarRating

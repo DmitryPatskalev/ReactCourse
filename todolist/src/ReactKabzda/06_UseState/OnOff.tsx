@@ -1,15 +1,15 @@
 import React from "react";
 import ShowHide from "./ShowHide";
 
-
 type OnOffType = {
     on: boolean
-    onChange: (on: boolean) => void
+    onClick: (on: boolean) => void
 }
+
 const OnOff = (props: OnOffType) => {
     const onStyle = {
         width: '40px',
-        height: '20px',
+        height: '40px',
         border: '1px solid black',
         padding: '5px',
         margin: '10px',
@@ -18,7 +18,7 @@ const OnOff = (props: OnOffType) => {
     }
     const offStyle = {
         width: '40px',
-        height: '20px',
+        height: '40px',
         border: '1px solid black',
         padding: '5px',
         margin: '10px',
@@ -32,15 +32,15 @@ const OnOff = (props: OnOffType) => {
         borderRadius: '15px',
         margin: '10px',
         display: 'inline-block',
-        backgroundColor: props.on ? 'lightgreen' : 'red'
+        backgroundColor: props.on ? 'lightgreen': 'red'
     }
-    let changeOn = () => props.onChange(true)
-    let changeOf = () => props.onChange(false)
-    return <div>
-        <div onClick={changeOn} style={onStyle}>ON</div>
-        <div onClick={changeOf} style={offStyle}>OFF</div>
-        <div style={indicatorStyle}>{props.on ? 'ON' : 'OFF'}</div>
 
+        const buttonOn =()=> props.onClick(true)
+        const buttonOff =()=> props.onClick(false)
+    return <div>
+        <button style={onStyle} onClick={buttonOn}>ON</button>
+        <button style={offStyle} onClick={buttonOff}>OFF</button>
+        <button style={indicatorStyle}>{props.on? 'on':'off'}</button>
         <hr/>
         <ShowHide/>
     </div>

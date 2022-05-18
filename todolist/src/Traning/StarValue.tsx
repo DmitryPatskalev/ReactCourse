@@ -2,15 +2,12 @@ import React from "react";
 import css from './style.module.css'
 
 
-
-export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
+export type StarRatingType = 0 | 1 | 2 | 3 | 4 | 5
 
 type StarValueType = {
-    value: RatingValueType
-    onClick: (value: RatingValueType) => void
+    value: StarRatingType
+    onClick: (value: StarRatingType) => void
 }
-
-
 const StarValue = (props: StarValueType) => {
 
     return <div>
@@ -20,24 +17,24 @@ const StarValue = (props: StarValueType) => {
         <Star selected={props.value > 3} onClick={props.onClick} value={4}/>
         <Star selected={props.value > 4} onClick={props.onClick} value={5}/>
     </div>
-
 }
 export default StarValue
 
 type StarType = {
     selected: boolean
-    value: RatingValueType
-    onClick: (value: RatingValueType) => void
+    value: StarRatingType
+    onClick: (value: StarRatingType) => void
 }
 
-const Star = (props:StarType) => {
-    let setStar = ()=> props.onClick(props.value)
+const Star = (props: StarType) => {
 
- return <span onClick={setStar}>
-     {props.selected ? <button className={css.buttonOn}></button>:
-     <button className={css.buttonOf}></button>
-     }
- </span>
+    const colorActive = () => props.onClick(props.value)
+
+    return <span>
+        {(props.selected) ?
+          <button onClick={colorActive} className={css.buttonOn}></button> :
+          <button onClick={colorActive} className={css.buttonOf}></button>}
+    </span>
 }
 
 

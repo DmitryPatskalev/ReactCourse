@@ -19,8 +19,8 @@ const ShowHideMenu = () => {
     let result
     if (value) {
         result = listOfPeople.map((elem, index) => {
-            return <div>
-                <p key={index}>
+            return <div key={index}>
+                <p >
                     <span>name: {elem.name}--</span>
                     <span>age: {elem.age}</span>
                 </p>
