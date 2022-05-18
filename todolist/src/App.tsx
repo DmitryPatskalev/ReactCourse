@@ -9,7 +9,7 @@ import SwitchOnOff from "./ReactKabzda/06_UseState/SwitchOnOff";
 function App() {
   return (
     <div className="App">
-        {/*<Todolist/>*/}
+        <Todolist/>
         <SwitchOnOff/>
         {/*<hr/>*/}
         <StarRating/>

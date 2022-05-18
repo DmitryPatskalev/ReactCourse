@@ -9,7 +9,7 @@ export type Todolist = {
     tech: string
     isDone: boolean
 }
-export type FilterType = 'All' | 'Active' | 'Checked'
+export type FilterType = 'All' | 'Active' | 'Completed'
 
 const Todolist = () => {
     let tasks: Array<Todolist> = [
@@ -20,7 +20,7 @@ const Todolist = () => {
         {id: v1(), tech: 'CSS/HTML', isDone: true},
     ]
     const [task, setTask] = useState(tasks)
-    const [filter, setFilter] = useState('All')
+    const [filter, setFilter] = useState<FilterType>('All')
 
     let buttonRemoveTask = (id: string) => {
         let removeTask = task.filter(elem => elem.id !== id)
@@ -30,10 +30,10 @@ const Todolist = () => {
     if (filter === 'Active') {
         filterTask = task.filter(elem => !elem.isDone)
     }
-    if (filter === 'Checked') {
+    if (filter === 'Completed') {
         filterTask = task.filter(elem => elem.isDone)
     }
-    let onClickHundler = (name: string) => {
+    let onClickHundler = (name: FilterType) => {
         setFilter(name)
     }
 
@@ -61,6 +61,7 @@ const Todolist = () => {
                onClickHundler={onClickHundler}
                addTasks={addTasks}
                changeStatus={changeStatus}
+               filter={filter}
         />
     </div>
 }

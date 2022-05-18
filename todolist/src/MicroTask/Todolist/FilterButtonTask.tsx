@@ -1,26 +1,34 @@
 import React from "react";
 import {FilterType} from "./Todolist";
+import './style.css'
+
 
 type FilterButtonTaskType = {
     onClickHundler:(name:FilterType)=>void
+    filter:FilterType
 }
 
 const FilterButtonTask = (props:FilterButtonTaskType) => {
 
-    let buttonShowAll = ()=>{
+    const buttonShowAll = ()=>{
         props.onClickHundler('All')
     }
-    let buttonShowActive= ()=>{
+    const buttonShowActive= ()=>{
         props.onClickHundler('Active')
     }
-    let buttonShowChecked= ()=>{
-        props.onClickHundler('Checked')
+    const buttonShowCompleted= ()=>{
+        props.onClickHundler('Completed')
     }
 
-    return <div>
-        <button className='showAll' onClick={buttonShowAll}>All</button>
-        <button className='showActive' onClick={buttonShowActive}>Active</button>
-        <button className='showChecked' onClick={buttonShowChecked}>Checked</button>
+    const activeAll =  props.filter === 'All'? 'active':''
+    const activeActive =  props.filter === 'Active'? 'active':''
+    const activeCompleted =  props.filter === 'Completed'? 'active':''
+
+
+    return <div className='buttonsFilter'>
+        <button className={activeAll} onClick={buttonShowAll}>All</button>
+        <button className={activeActive} onClick={buttonShowActive}>Active</button>
+        <button className={activeCompleted} onClick={buttonShowCompleted}>Completed</button>
     </div>
 }
 

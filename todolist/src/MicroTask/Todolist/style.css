@@ -4,16 +4,11 @@
 .error-message {
     color: red
 }
-.showAll:focus{
+.active{
+
     background-color: lightgreen;
 }
-.showActive:focus{
-    background-color: lightgreen;
-}
-.showChecked:focus{
-    background-color: lightgreen;
-}
-.showAll, .showActive, .showChecked{
+.buttonsFilter button{
     margin: 5px;
 }
 .isDone{

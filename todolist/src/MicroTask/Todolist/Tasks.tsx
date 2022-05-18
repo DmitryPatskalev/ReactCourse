@@ -12,6 +12,7 @@ type TasksType = {
     onClickHundler:(name:FilterType)=>void
     addTasks:(title:string)=>void
     changeStatus:(taskId:string, isDone:boolean)=>void
+    filter:FilterType
 }
 
 export const Tasks = (props:TasksType)=>{
@@ -34,7 +35,7 @@ export const Tasks = (props:TasksType)=>{
         <AddTask addTasks={props.addTasks}  />
         {listOfTasks}
         <div>
-            <FilterButtonTask onClickHundler={props.onClickHundler}/>
+            <FilterButtonTask onClickHundler={props.onClickHundler} filter={props.filter}/>
         </div>
     </div>
 }
