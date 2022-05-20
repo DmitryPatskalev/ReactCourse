@@ -1,30 +1,33 @@
 import React, {ChangeEvent} from "react";
-import {FilterType, Todolist} from "./Todolist";
-import AddTask from "./AddTask";
-import FilterButtonTask from "./FilterButtonTask";
+import {FilterType, TodoListType} from "./Todolist";
 import './style.css'
 
+import './style.css'
+import AddTask from "./AddTask";
+import FilterButtonTask from "./FilterButtonTask";
 
 type TasksType = {
-    task: Todolist[]
+    tasks:TodoListType[]
     title:string
     buttonRemoveTask:(id:string)=>void
-    onClickHundler:(name:FilterType)=>void
+    buttonFilterTask:(name:FilterType)=>void
     addTasks:(title:string)=>void
-    changeStatus:(taskId:string, isDone:boolean)=>void
     filter:FilterType
+    changeStatus:(taskId:string, isDone:boolean)=>void
+
 }
 
 export const Tasks = (props:TasksType)=>{
-    let listOfTasks = props.task.map((elem, index)=>{
-        let remove =()=> props.buttonRemoveTask(elem.id)
-        let onChangeTaskHundler = (event:ChangeEvent<HTMLInputElement>)=>{
+    let listOfTasks = props.tasks.map((elem,index)=>{
+        let removeElem =()=> props.buttonRemoveTask(elem.id)
+        let changeStatus = (event:ChangeEvent<HTMLInputElement>)=>{
             props.changeStatus(elem.id, event.currentTarget.checked)
         }
-        return <ul className={elem.isDone? 'isDone':''} key={index}>
-            <li >
-                <input type='checkbox' onChange={onChangeTaskHundler} checked={elem.isDone}/>{elem.tech}
-                <span><button className='button-remove' onClick={remove}>x</button></span>
+        return <ul key={index}>
+            <li className={elem.isDone? 'isDone':''}>
+                <input type='checkbox' onChange={changeStatus}  checked={elem.isDone}/>
+                {elem.tech}
+                <button onClick={removeElem} className='button-remove'>x</button>
             </li>
         </ul>
     })
@@ -32,10 +35,9 @@ export const Tasks = (props:TasksType)=>{
 
     return <div>
         <h3>{props.title}</h3>
-        <AddTask addTasks={props.addTasks}  />
+        <AddTask addTasks={props.addTasks}/>
         {listOfTasks}
-        <div>
-            <FilterButtonTask onClickHundler={props.onClickHundler} filter={props.filter}/>
-        </div>
+        <FilterButtonTask buttonFilterTask={props.buttonFilterTask} filter={props.filter}/>
+
     </div>
 }

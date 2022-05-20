@@ -1,18 +1,21 @@
 import React, {useState} from "react";
-import {Tasks} from "./Tasks";
+
 import './../../App.css'
 import {v1} from "uuid";
+import {Tasks} from "./Tasks";
 
 
-export type Todolist = {
+export type TodoListType = {
     id: string
     tech: string
     isDone: boolean
 }
+
 export type FilterType = 'All' | 'Active' | 'Completed'
 
 const Todolist = () => {
-    let tasks: Array<Todolist> = [
+
+    let tasks: Array<TodoListType> = [
         {id: v1(), tech: 'JS', isDone: true},
         {id: v1(), tech: 'React', isDone: true},
         {id: v1(), tech: 'C++/C#', isDone: false},
@@ -22,22 +25,22 @@ const Todolist = () => {
     const [task, setTask] = useState(tasks)
     const [filter, setFilter] = useState<FilterType>('All')
 
-    let buttonRemoveTask = (id: string) => {
-        let removeTask = task.filter(elem => elem.id !== id)
-        setTask(removeTask)
+
+    const buttonRemoveTask = (id: string) => {
+        let removeElem = task.filter(elem => elem.id !== id)
+        setTask(removeElem)
     }
-    let filterTask = task
+    let filterTasks = task
     if (filter === 'Active') {
-        filterTask = task.filter(elem => !elem.isDone)
+        filterTasks = task.filter(elem => !elem.isDone)
     }
     if (filter === 'Completed') {
-        filterTask = task.filter(elem => elem.isDone)
+        filterTasks = task.filter((elem => elem.isDone))
     }
-    let onClickHundler = (name: FilterType) => {
+    let buttonFilterTask = (name: FilterType) => {
         setFilter(name)
     }
-
-    let addTasks = (title:string)=>{
+    const addTasks = (title:string)=>{
         let addTask = {
             id:v1(),
             tech:title,
@@ -45,24 +48,27 @@ const Todolist = () => {
         }
         setTask([addTask,...task])
     }
-
-    let changeStatus = (taskId:string, isDone:boolean)=>{
-        let changedTask = task.find(t=>t.id === taskId)
-        if(changedTask){
-            changedTask.isDone = isDone
+    const changeStatus = (taskId:string, isDone:boolean)=>{
+        let changeChecked = task.find(elem=>elem.id === taskId)
+        if(changeChecked){
+            changeChecked.isDone = isDone
         }
         setTask([...task])
     }
 
     return <div className='App'>
-        <Tasks task={filterTask}
-               title='What I Learn'
-               buttonRemoveTask={buttonRemoveTask}
-               onClickHundler={onClickHundler}
-               addTasks={addTasks}
-               changeStatus={changeStatus}
-               filter={filter}
+        <Tasks
+          title='What I Learn'
+          tasks={filterTasks}
+          buttonRemoveTask={buttonRemoveTask}
+          buttonFilterTask={buttonFilterTask}
+          addTasks={addTasks}
+          changeStatus={changeStatus}
+          filter={filter}
+
         />
+
+
     </div>
 }
 export default Todolist

@@ -3,42 +3,43 @@ import './style.css'
 
 type AddTaskType = {
     addTasks: (title: string) => void
-
 }
 
 export const AddTask = (props: AddTaskType) => {
     const [newTask, setNewTask] = useState('')
-    const [error, setError] = useState<string | null>('')
+    const [error, serError] = useState<string | null>(null)
 
-    let onChangeHundler = (event: ChangeEvent<HTMLInputElement>) => {
-        setError(null)
+    const onChangeHundler = (event: ChangeEvent<HTMLInputElement>) => {
+        serError(null)
         setNewTask(event.currentTarget.value)
     }
-
-    let onPressKeyHundler = (event: KeyboardEvent<HTMLInputElement>) => {
+    const onKeyPressHundler = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.charCode === 13) {
-            onClickHundler()
-            setNewTask('')
+            onClickAddTask()
         }
     }
-    let onClickHundler = () => {
+
+    const onClickAddTask = () => {
         if (newTask.trim() !== '') {
-            props.addTasks(newTask)
-        }else {
-            setError('Please, enter the data')
+            props.addTasks(newTask.trim())
+        } else {
+            serError('Input the message')
         }
         setNewTask('')
     }
 
     return <div>
-        <input className={error? 'error':''}
+        <input
+          className={error ? 'error' : ''}
           value={newTask}
           onChange={onChangeHundler}
-          onKeyPress={onPressKeyHundler}
+          onKeyPress={onKeyPressHundler}
         />
-        <button onClick={onClickHundler}>+</button>
-        {error && <div className='error-message'>{error}</div>}
 
+        <button
+          onClick={onClickAddTask}>+
+        </button>
+        {error && <div className='error-message'>{error}</div>}
     </div>
 }
 export default AddTask

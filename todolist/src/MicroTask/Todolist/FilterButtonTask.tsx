@@ -1,34 +1,36 @@
 import React from "react";
-import {FilterType} from "./Todolist";
 import './style.css'
 
+import './style.css'
+import {FilterType} from "./Todolist";
 
-type FilterButtonTaskType = {
-    onClickHundler:(name:FilterType)=>void
-    filter:FilterType
+type FilterButtonTask = {
+    buttonFilterTask: (name: FilterType) => void
+    filter: FilterType
 }
 
-const FilterButtonTask = (props:FilterButtonTaskType) => {
 
-    const buttonShowAll = ()=>{
-        props.onClickHundler('All')
+const FilterButtonTask = (props: FilterButtonTask) => {
+
+    const showAll = () => {
+        props.buttonFilterTask('All')
     }
-    const buttonShowActive= ()=>{
-        props.onClickHundler('Active')
+    const showActive = () => {
+        props.buttonFilterTask('Active')
     }
-    const buttonShowCompleted= ()=>{
-        props.onClickHundler('Completed')
+    const showCompleted = () => {
+        props.buttonFilterTask('Completed')
     }
 
-    const activeAll =  props.filter === 'All'? 'active':''
-    const activeActive =  props.filter === 'Active'? 'active':''
-    const activeCompleted =  props.filter === 'Completed'? 'active':''
-
+    const activeAll = props.filter === 'All' ? 'active' : ''
+    const activeActive = props.filter === 'Active' ? 'active' : ''
+    const activeCompleted = props.filter === 'Completed' ? 'active' : ''
 
     return <div className='buttonsFilter'>
-        <button className={activeAll} onClick={buttonShowAll}>All</button>
-        <button className={activeActive} onClick={buttonShowActive}>Active</button>
-        <button className={activeCompleted} onClick={buttonShowCompleted}>Completed</button>
+        <button onClick={showAll} className={activeAll}>All</button>
+        <button onClick={showActive} className={activeActive}>Active</button>
+        <button onClick={showCompleted} className={activeCompleted}>Completed</button>
+
     </div>
 }
 
