@@ -1,10 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import {v1} from "uuid";
+
 
 type ListOfPeopleType = {
     id: string
     name: string
     age: number
+}
+
+type ListShowHideType = {
+    show: boolean
+    showOff: (show: boolean) => void
 }
 
 let listOfPeople: Array<ListOfPeopleType> = [
@@ -14,24 +20,23 @@ let listOfPeople: Array<ListOfPeopleType> = [
     {id: v1(), name: 'Serg', age: 36}
 ]
 
-const ShowHideMenu = () => {
-    const [value, setValue] = useState(false)
+const ShowHideMenu = (props: ListShowHideType) => {
+
     let result
-    if (value) {
+    if (props.show) {
         result = listOfPeople.map((elem, index) => {
             return <div key={index}>
-                <p >
+                <p>
                     <span>name: {elem.name}--</span>
                     <span>age: {elem.age}</span>
                 </p>
             </div>
         })
     }
-    return <div>
-        <h3 onClick={() => setValue(!value)}>LIST</h3>
-        <div>
+    let buttonShowHide = () => props.showOff(!props.show)
 
-        </div>
+    return <div>
+        <h3 onClick={buttonShowHide}>List of users (click to show)</h3>
         {result}
     </div>
 }

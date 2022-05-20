@@ -1,5 +1,5 @@
 import React from "react";
-import ShowHide from "./ShowHide";
+import ListShowHide from "./ListShowHide";
 
 type OnOffType = {
     on:boolean
@@ -43,7 +43,7 @@ const OnOff = (props: OnOffType) => {
         <button style={indicatorStyle}>{props.on? 'ON': 'OFF'}</button>
 
         <hr/>
-        <ShowHide/>
+        <ListShowHide/>
     </div>
 }
 export default OnOff
