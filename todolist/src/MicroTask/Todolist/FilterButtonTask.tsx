@@ -5,22 +5,22 @@ import './style.css'
 import {FilterType} from "./Todolist";
 
 type FilterButtonTask = {
-    buttonFilterTask: (value: FilterType,todoListId: string) => void
+    buttonFilterTask: (todoListId: string,value: FilterType) => void
     filter: FilterType
-    id:string
+    todolistID:string
 }
 
 
 const FilterButtonTask = (props: FilterButtonTask) => {
 
     const showAll = () => {
-        props.buttonFilterTask('All', props.id)
+        props.buttonFilterTask(props.todolistID,'All', )
     }
     const showActive = () => {
-        props.buttonFilterTask('Active',props.id)
+        props.buttonFilterTask(props.todolistID,'Active')
     }
     const showCompleted = () => {
-        props.buttonFilterTask('Completed',props.id)
+        props.buttonFilterTask(props.todolistID,'Completed')
     }
 
     const activeAll = props.filter === 'All' ? 'active' : ''

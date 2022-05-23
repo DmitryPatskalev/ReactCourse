@@ -7,23 +7,23 @@ import AddTask from "./AddTask";
 import FilterButtonTask from "./FilterButtonTask";
 
 type TasksType = {
-    id: string
+    todolistID: string
     tasks: TodoListType[]
     title: string
-    buttonRemoveTask: (id: string, todoListId: string) => void
-    buttonFilterTask: (value: FilterType, todoListId: string) => void
-    addTasks: (title: string, todoListId: string) => void
+    buttonRemoveTask: (todoListId: string, id: string) => void
+    buttonFilterTask: (todoListId: string, value: FilterType) => void
+    addTasks: (todoListId: string, id: string) => void
     filter: FilterType
-    changeStatus: (taskId: string, isDone: boolean,todoListId: string ) => void
-    buttonRemTodoList:(todoListId: string)=>void
+    changeStatus: (todoListId: string, taskId: string, isDone: boolean) => void
+    buttonRemTodoList: (todoListId: string) => void
 
 }
 
 export const Tasks = (props: TasksType) => {
     let listOfTasks = props.tasks.map((elem, index) => {
-        let removeElem = () => props.buttonRemoveTask(elem.id, props.id)
+        let removeElem = () => props.buttonRemoveTask(props.todolistID,elem.id)
         let changeStatus = (event: ChangeEvent<HTMLInputElement>) => {
-            props.changeStatus(elem.id, event.currentTarget.checked, props.id)
+            props.changeStatus(props.todolistID, elem.id, event.currentTarget.checked)
         }
         return <ul key={index}>
             <li className={elem.isDone ? 'isDone' : ''}>
@@ -33,16 +33,18 @@ export const Tasks = (props: TasksType) => {
             </li>
         </ul>
     })
-    const remTDList =()=>{
-        props.buttonRemTodoList(props.id)
+    const remTDList = () => {
+        props.buttonRemTodoList(props.todolistID)
     }
 
 
     return <div>
-        <h3>{props.title}<button onClick={remTDList} className='remTDList'>x</button></h3>
-        <AddTask addTasks={props.addTasks} id={props.id}/>
+        <h3>{props.title}
+            <button onClick={remTDList} className='remTDList'>x</button>
+        </h3>
+        <AddTask addTasks={props.addTasks} todolistID={props.todolistID}/>
         {listOfTasks}
-        <FilterButtonTask buttonFilterTask={props.buttonFilterTask} filter={props.filter} id={props.id}/>
+        <FilterButtonTask buttonFilterTask={props.buttonFilterTask} filter={props.filter} todolistID={props.todolistID}/>
 
     </div>
 }

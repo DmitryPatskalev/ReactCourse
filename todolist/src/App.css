@@ -1,5 +1,5 @@
 .App {
-  display: flex;
+  display: grid;
   margin: 20px;
   text-align: left;
 

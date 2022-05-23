@@ -48,13 +48,15 @@ const Todolist = () => {
     const [task, setTask] = useState(tasks)
 
 
-    const buttonRemoveTask = (id: string, todoListId: string) => {
+    const buttonRemoveTask = (todoListId: string, id: string) => {
         let todolist = task[todoListId]
         task[todoListId] = todolist.filter(elem => elem.id !== id)
         setTodoLists([...todoLists])
     }
 
-    let buttonFilterTask = (value: FilterType, todoListId: string) => {
+    let buttonFilterTask = (todoListId: string, value: FilterType) => {
+
+        // setTodoLists(todoLists.map(elem => elem.id === todoListId ? {...elem, filter: value} : elem))
         let todoList = todoLists.find(tl => tl.id === todoListId)
         if (todoList) {
             todoList.filter = value
@@ -62,27 +64,29 @@ const Todolist = () => {
         }
     }
 
-    const addTasks = (title: string, todoListId: string) => {
-        let addTask = {
+    const addTasks = (todoListId: string, title: string) => {
+        let newTask = {
             id: v1(),
-            title: title,
-            isDone: true
+            title,
+            isDone: false
         }
-        let todolist = task[todoListId]
-        task[todoListId] = [addTask, ...todolist]
-        setTask({...task})
+        setTask({...task, [todoListId]: [newTask, ...task[todoListId]]})
+        // let todolist = task[todoListId]
+        // task[todoListId] = [newTask, ...todolist]
+        // setTask({...task})
     }
 
-    const changeStatus = (taskId: string, isDone: boolean, todoListId: string) => {
-        let todolist = task[todoListId]
-        let changeChecked = todolist.find(elem => elem.id === taskId)
-        if (changeChecked) {
-            changeChecked.isDone = isDone
-        }
-        setTask({...task})
+    const changeStatus = (todoListId: string, taskId: string, isDone: boolean) => {
+        setTask({...task, [todoListId]: task[todoListId].map(elem => elem.id===taskId ? {...elem, isDone} : elem)})
+        // let todolist = task[todoListId]
+        // let changeChecked = todolist.find(elem => elem.id === taskId)
+        // if (changeChecked) {
+        //     changeChecked.isDone = isDone
+        // }
+        // setTask({...task})
     }
-    const buttonRemTodoList = (todoListId:string)=>{
-        let filterTodolist = todoLists.filter(tl=>tl.id !==todoListId)
+    const buttonRemTodoList = (todoListId: string) => {
+        let filterTodolist = todoLists.filter(tl => tl.id !== todoListId)
         setTodoLists(filterTodolist)
         delete task[todoListId]
         setTask({...task})
@@ -99,7 +103,7 @@ const Todolist = () => {
             }
             return <Tasks
               key={tl.id}
-              id={tl.id}
+              todolistID={tl.id}
               title={tl.title}
               tasks={filterTasks}
               buttonRemoveTask={buttonRemoveTask}
