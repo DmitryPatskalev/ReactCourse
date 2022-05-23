@@ -2,7 +2,8 @@ import React, {ChangeEvent, KeyboardEvent, useState} from "react";
 import './style.css'
 
 type AddTaskType = {
-    addTasks: (title: string) => void
+    addTasks: (title: string,todoListId: string) => void
+    id:string
 }
 
 export const AddTask = (props: AddTaskType) => {
@@ -21,7 +22,7 @@ export const AddTask = (props: AddTaskType) => {
 
     const onClickAddTask = () => {
         if (newTask.trim() !== '') {
-            props.addTasks(newTask.trim())
+            props.addTasks(newTask.trim(), props.id)
         } else {
             serError('Input the message')
         }

@@ -1,3 +1,4 @@
+
 .error {
     border: 2px solid red;
 }
@@ -19,4 +20,11 @@
 }
 .button-remove{
     margin: 5px;
+}
+
+.remTDList{
+    margin: 5px;
+}
+.remTDList:hover{
+    background-color: red;
 }

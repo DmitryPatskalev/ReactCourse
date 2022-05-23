@@ -10,9 +10,9 @@ function App() {
   return (
     <div className="App">
         <Todolist/>
-        <SwitchOnOff/>
+        {/*<SwitchOnOff/>*/}
         {/*<hr/>*/}
-        <StarRating/>
+        {/*<StarRating/>*/}
         {/*<hr/>*/}
         {/*<Callback/>*/}
 
