@@ -9,7 +9,7 @@ export type ButtonsCounterType = {
 
 export const ButtonsCounter = (props: ButtonsCounterType) => {
     let colorNum = {
-        color: props.num === 5 || props.num ===0 ? 'red' : ''
+        color: props.num === 10 || props.num ===0 ? 'red' : ''
     }
 
     return <div>

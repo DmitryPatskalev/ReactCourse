@@ -8,7 +8,7 @@ export const SuperButton = (props: ButtonsCounterType) => {
     const incButton = () => props.counter(props.num + 1)
     const resetButton = () => props.counter(0)
 
-    const incDisable = props.num === 5
+    const incDisable = props.num === 10
     const resetDisable = props.num === 0
 
     return <div>
