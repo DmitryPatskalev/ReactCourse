@@ -1,5 +1,5 @@
 import React from "react";
-import ListShowHide from "./ListShowHide";
+import ListShowHide from "../../ReactKabzda/06_UseState/ListShowHide";
 
 type OnOffType = {
     on:boolean
@@ -43,7 +43,6 @@ const OnOff = (props: OnOffType) => {
         <button style={indicatorStyle}>{props.on? 'ON': 'OFF'}</button>
 
         <hr/>
-        <ListShowHide/>
     </div>
 }
 export default OnOff

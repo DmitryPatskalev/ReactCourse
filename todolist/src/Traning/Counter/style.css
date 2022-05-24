@@ -1,0 +1,37 @@
+.body {
+    border: 3px solid blue;
+    width: 460px;
+    height: 280px;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+.subBody {
+    border: 1px solid blue;
+    width: 420px;
+    height: 140px;
+    border-radius: 10px;
+    margin: 20px;
+    background-color: lightgray;
+}
+.button-border{
+    border: 1px solid blue;
+    width: 420px;
+    height: 60px;
+    border-radius: 10px;
+    margin: 20px;
+    text-align: center;
+    background-color: lightgreen;
+}
+.inc, .reset {
+    width: 140px;
+    height: 40px;
+    margin: 10px;
+    font-size: 30px;
+    border-radius: 10px;
+
+}
+.count{
+    font-size: 80px;
+    text-align: center;
+    font-weight: bold;
+}
