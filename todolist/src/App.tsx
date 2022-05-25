@@ -4,7 +4,8 @@ import Todolist from "./MicroTask/Todolist/Todolist";
 import StarRating from "./Traning/StarRating/StarRating";
 import Callback from "./Native/06_Callback/Callback";
 import SwitchOnOff from "./Traning/ButtonOnOff/SwitchOnOff";
-import Counter from "./Traning/Counter/Counter";
+import GlobalCounter from "./Traning/Counter/GlobalCounter";
+
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
         {/*<SwitchOnOff/>*/}
         {/*<hr/>*/}
         {/*<StarRating/>*/}
-        <hr/>
-        <Counter/>
+        <GlobalCounter/>
+
+
         {/*<Callback/>*/}
 
     </div>

@@ -6,10 +6,9 @@ export type ButtonsCounterType = {
     num: number
     counter: (num: number) => void
 }
-
 export const ButtonsCounter = (props: ButtonsCounterType) => {
     let colorNum = {
-        color: props.num === 10 || props.num ===0 ? 'red' : ''
+        color: props.num === 5 || props.num === 0 ? 'red' : ''
     }
 
     return <div>
