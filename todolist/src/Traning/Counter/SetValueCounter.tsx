@@ -1,8 +1,6 @@
 import React, {ChangeEvent, useEffect, useState} from "react";
 import './style.css'
 
-
-
 export const SetValueCounter = () => {
 
     const [maxValue, setMaxValue] = useState<number>(1)
@@ -33,9 +31,15 @@ export const SetValueCounter = () => {
         setStarValue(Number(event.currentTarget.value))
     }
 
-    let setLocalStorage =()=>{
+    let setLocalStorage = () => {
         localStorage.setItem('valueMax', JSON.stringify(maxValue))
         localStorage.setItem('valueStar', JSON.stringify(starValue))
+    }
+    const styleStarValue = {
+        backgroundColor: starValue < 0 || starValue >= maxValue ? 'red' : ''
+    }
+    const styleMaxValue = {
+        backgroundColor: maxValue <= starValue || maxValue < 1 ? 'red' : ''
     }
 
     return <div className='body'>
@@ -44,6 +48,7 @@ export const SetValueCounter = () => {
                 <span>max value:</span>
                 <span>
                 <input
+                  style={styleMaxValue}
                   value={maxValue}
                   type='number'
                   className='inputMax'
@@ -55,6 +60,7 @@ export const SetValueCounter = () => {
                 <span>star value:</span>
                 <span>
                 <input
+                  style={styleStarValue}
                   value={starValue}
                   type='number'
                   className='inputStar'
