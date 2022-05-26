@@ -37,6 +37,8 @@
     height: 40px;
     margin: 10px;
     font-size: 30px;
+    font-family: 'Neucha', cursive;
+
     /*border-radius: 10px;*/
 }
 
@@ -66,4 +68,8 @@
 }
 .inputStar{
     margin-left: 118px;
+}
+.errorValue{
+    font-size: 40px;
+    color: red;
 }

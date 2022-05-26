@@ -1,29 +1,31 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import './style.css'
 import {ButtonsCounter} from "./ButtonsCounter";
 
 
+export type CounterType ={
+    num:number
+    count:(num:number)=>void
+    startNum:number
+    maxNum:number
+}
 
-
-const Counter = () => {
-    const [value, setValue] = useState(0)
+const Counter = (props:CounterType) => {
 
     useEffect(()=>{
         let valueString = localStorage.getItem('valueId')
         if(valueString){
             let newValue = JSON.parse(valueString)
-            setValue(newValue)
+            props.count(newValue)
         }
     },[])
 
     useEffect(()=>{
-        localStorage.setItem('valueId', JSON.stringify(value))
+        localStorage.setItem('valueId', JSON.stringify(props.num))
     })
 
-
     return <div className='body'>
-            <ButtonsCounter num={value} counter={setValue}/>
-
+            <ButtonsCounter num={props.num} count={props.count} startNum={props.startNum} maxNum={props.maxNum}/>
     </div>
 
 }

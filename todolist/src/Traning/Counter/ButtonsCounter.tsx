@@ -1,24 +1,22 @@
 import React from "react";
 import './style.css'
 import {SuperButton} from "./UniversButton";
+import {CounterType} from "./Counter";
 
-export type ButtonsCounterType = {
-    num: number
-    counter: (num: number) => void
-}
-export const ButtonsCounter = (props: ButtonsCounterType) => {
+
+export const ButtonsCounter = (props: CounterType) => {
     let colorNum = {
-        color: props.num === 5 || props.num === 0 ? 'red' : ''
+        color: props.num === props.maxNum || props.num === props.startNum ? 'red' : ''
     }
 
     return <div>
         <div className='subBody'>
             <div className='count' style={colorNum}>
-                {props.num}
+                {props.startNum >= 0 && props.maxNum > props.startNum ? props.num:<span className='errorValue'>Incorrect Value</span>}
             </div>
         </div>
         <div className='button-border'>
-            <SuperButton num={props.num} counter={props.counter}/>
+            <SuperButton num={props.num} count={props.count} startNum={props.startNum} maxNum={props.maxNum}/>
         </div>
 
     </div>
