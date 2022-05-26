@@ -3,8 +3,8 @@ import './style.css'
 
 export const SetValueCounter = () => {
 
+    const [startValue, setStartValue] = useState<number>(0)
     const [maxValue, setMaxValue] = useState<number>(1)
-    const [starValue, setStarValue] = useState<number>(0)
 
     useEffect(() => {
         let valueStringMax = localStorage.getItem('valueMax')
@@ -15,12 +15,12 @@ export const SetValueCounter = () => {
         }
         if (valueStringStart) {
             let strValue = JSON.parse(valueStringStart)
-            setStarValue(strValue)
+            setStartValue(strValue)
         }
     }, [])
     let setLocalStorage = () => {
         localStorage.setItem('valueMax', JSON.stringify(maxValue))
-        localStorage.setItem('valueStart', JSON.stringify(starValue))
+        localStorage.setItem('valueStart', JSON.stringify(startValue))
     }
 
     // useEffect(() => {
@@ -33,15 +33,15 @@ export const SetValueCounter = () => {
         setMaxValue(Number(event.currentTarget.value))
     }
     let onChangeStartValue = (event: ChangeEvent<HTMLInputElement>) => {
-        setStarValue(Number(event.currentTarget.value))
+        setStartValue(Number(event.currentTarget.value))
     }
 
 
     const styleStarValue = {
-        backgroundColor: starValue < 0 || starValue >= maxValue ? 'red' : ''
+        backgroundColor: startValue < 0 || startValue >= maxValue ? 'red' : ''
     }
     const styleMaxValue = {
-        backgroundColor: maxValue <= starValue || maxValue < 1 ? 'red' : ''
+        backgroundColor: maxValue <= startValue || maxValue < 1 ? 'red' : ''
     }
 
     return <div className='body'>
@@ -63,7 +63,7 @@ export const SetValueCounter = () => {
                 <span>
                 <input
                   style={styleStarValue}
-                  value={starValue}
+                  value={startValue}
                   type='number'
                   className='inputStar'
                   onChange={onChangeStartValue}
