@@ -18,11 +18,16 @@ export const SetValueCounter = () => {
             setStarValue(strValue)
         }
     }, [])
-
-    useEffect(() => {
+    let setLocalStorage = () => {
         localStorage.setItem('valueMax', JSON.stringify(maxValue))
         localStorage.setItem('valueStart', JSON.stringify(starValue))
-    })
+    }
+
+    // useEffect(() => {
+    //     localStorage.setItem('valueMax', JSON.stringify(maxValue))
+    //     localStorage.setItem('valueStart', JSON.stringify(starValue))
+    // })
+
 
     let onChangeMaxValue = (event: ChangeEvent<HTMLInputElement>) => {
         setMaxValue(Number(event.currentTarget.value))
@@ -31,10 +36,7 @@ export const SetValueCounter = () => {
         setStarValue(Number(event.currentTarget.value))
     }
 
-    let setLocalStorage = () => {
-        localStorage.setItem('valueMax', JSON.stringify(maxValue))
-        localStorage.setItem('valueStar', JSON.stringify(starValue))
-    }
+
     const styleStarValue = {
         backgroundColor: starValue < 0 || starValue >= maxValue ? 'red' : ''
     }
