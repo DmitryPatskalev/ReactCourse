@@ -1,8 +1,10 @@
 import React, {useState} from "react";
+import './style.css'
 
 import './../../App.css'
 import {v1} from "uuid";
 import {Tasks} from "./Tasks";
+import AddTask from "./AddTask";
 
 
 export type TodoListType = {
@@ -92,29 +94,33 @@ const Todolist = () => {
         setTask({...task})
     }
 
-    return <div className='App'>
-        {todoLists.map(tl => {
-            let filterTasks = task[tl.id]
-            if (tl.filter === 'Active') {
-                filterTasks = filterTasks.filter(elem => !elem.isDone)
-            }
-            if (tl.filter === 'Completed') {
-                filterTasks = filterTasks.filter((elem => elem.isDone))
-            }
-            return <Tasks
-              key={tl.id}
-              todolistID={tl.id}
-              title={tl.title}
-              tasks={filterTasks}
-              buttonRemoveTask={buttonRemoveTask}
-              buttonFilterTask={buttonFilterTask}
-              addTasks={addTasks}
-              changeStatus={changeStatus}
-              filter={tl.filter}
-              buttonRemTodoList={buttonRemTodoList}
-            />
-        })}
-
+    return <div>
+        <div className='AddToDo'>
+            <AddTask addTasks={addTasks} todolistID={'dfsdf'}/>
+        </div>
+        <div  className='App'>
+            {todoLists.map(tl => {
+                let filterTasks = task[tl.id]
+                if (tl.filter === 'Active') {
+                    filterTasks = filterTasks.filter(elem => !elem.isDone)
+                }
+                if (tl.filter === 'Completed') {
+                    filterTasks = filterTasks.filter((elem => elem.isDone))
+                }
+                return <Tasks
+                  key={tl.id}
+                  todolistID={tl.id}
+                  title={tl.title}
+                  tasks={filterTasks}
+                  buttonRemoveTask={buttonRemoveTask}
+                  buttonFilterTask={buttonFilterTask}
+                  addTasks={addTasks}
+                  changeStatus={changeStatus}
+                  filter={tl.filter}
+                  buttonRemTodoList={buttonRemTodoList}
+                />
+            })}
+        </div>
     </div>
 }
 export default Todolist

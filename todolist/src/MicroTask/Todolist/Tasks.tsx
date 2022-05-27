@@ -28,7 +28,7 @@ export const Tasks = (props: TasksType) => {
         return <ul key={index}>
             <li className={elem.isDone ? 'isDone' : ''}>
                 <input type='checkbox' onChange={changeStatus} checked={elem.isDone}/>
-                {elem.title}
+                <span>{elem.title}</span>
                 <button onClick={removeElem} className='button-remove'>x</button>
             </li>
         </ul>
