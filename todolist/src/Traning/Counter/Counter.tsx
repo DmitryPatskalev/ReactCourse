@@ -12,18 +12,6 @@ export type CounterType ={
 
 const Counter = (props:CounterType) => {
 
-    useEffect(()=>{
-        let valueString = localStorage.getItem('valueId')
-        if(valueString){
-            let newValue = JSON.parse(valueString)
-            props.count(newValue)
-        }
-    },[])
-
-    useEffect(()=>{
-        localStorage.setItem('valueId', JSON.stringify(props.num))
-    })
-
     return <div className='body'>
             <ButtonsCounter num={props.num} count={props.count} startNum={props.startNum} maxNum={props.maxNum}/>
     </div>
