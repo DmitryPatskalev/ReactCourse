@@ -1,6 +1,5 @@
 .AddToDo{
     display: flex;
-    align-items: center;
     justify-content: center;
     width: 1300px;
 }
@@ -41,4 +40,9 @@
 }
 .remTDList:hover{
     background-color: red;
+}
+.empty{
+    font-size: 30px;
+    font-family: 'Neucha', cursive;
+    color: green;
 }

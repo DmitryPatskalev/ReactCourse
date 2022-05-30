@@ -1,12 +1,11 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from "react";
 import './style.css'
 
-type AddTaskType = {
-    addTasks: (todoListId: string,title: string) => void
-    todolistID:string
+type AddItemFormType = {
+    addItem: (title: string) => void
 }
 
-export const AddTask = (props: AddTaskType) => {
+export const AddItemForm = (props: AddItemFormType) => {
     const [newTask, setNewTask] = useState('')
     const [error, serError] = useState<string | null>(null)
 
@@ -22,7 +21,7 @@ export const AddTask = (props: AddTaskType) => {
 
     const onClickAddTask = () => {
         if (newTask.trim() !== '') {
-            props.addTasks(props.todolistID, newTask.trim())
+            props.addItem(newTask.trim())
         } else {
             serError('Input the message')
         }
@@ -43,4 +42,3 @@ export const AddTask = (props: AddTaskType) => {
         {error && <div className='error-message'>{error}</div>}
     </div>
 }
-export default AddTask

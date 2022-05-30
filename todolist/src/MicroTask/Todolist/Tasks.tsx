@@ -1,10 +1,12 @@
 import React, {ChangeEvent} from "react";
 import {FilterType, TodoListType} from "./Todolist";
 import './style.css'
-
 import './style.css'
-import AddTask from "./AddTask";
+
 import FilterButtonTask from "./FilterButtonTask";
+import {AddItemForm} from "./AddItemForm";
+
+
 
 type TasksType = {
     todolistID: string
@@ -33,16 +35,19 @@ export const Tasks = (props: TasksType) => {
             </li>
         </ul>
     })
-    const remTDList = () => {
+    const removeTodoList = () => {
         props.buttonRemTodoList(props.todolistID)
+    }
+    const addTask = (title:string)=>{
+        props.addTasks(props.todolistID, title)
     }
 
 
     return <div>
         <h3>{props.title}
-            <button onClick={remTDList} className='remTDList'>x</button>
+            <button onClick={removeTodoList} className='remTDList'>x</button>
         </h3>
-        <AddTask addTasks={props.addTasks} todolistID={props.todolistID}/>
+        <AddItemForm addItem={addTask}/>
         {listOfTasks}
         <FilterButtonTask buttonFilterTask={props.buttonFilterTask} filter={props.filter} todolistID={props.todolistID}/>
 
