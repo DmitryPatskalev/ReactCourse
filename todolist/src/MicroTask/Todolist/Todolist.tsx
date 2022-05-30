@@ -102,6 +102,22 @@ const Todolist = () => {
         [todoList.id]:[]
         })
     }
+    const changeTaskTitle = (todoListId:string, id:string, newValue:string) => {
+        let todolist = task[todoListId]
+        let newTask = todolist.find(elem=>elem.id === id)
+        if(newTask){
+            newTask.title = newValue
+        }
+        setTask({...task})
+    }
+
+    const changeTodoListTitle = (id:string, newTitle:string) => {
+      const todolist = todoLists.find(elem=>elem.id === id)
+        if(todolist){
+            todolist.title = newTitle
+            setTodoLists([...todoLists])
+        }
+    }
 
     return <div>
         <div className='AddToDo'>
@@ -127,6 +143,8 @@ const Todolist = () => {
                   changeStatus={changeStatus}
                   filter={tl.filter}
                   buttonRemTodoList={buttonRemTodoList}
+                  changeTaskTitle={changeTaskTitle}
+                  changeTodoListTitle={changeTodoListTitle}
                 />
             }):<span className='empty'>Create your first TodoList</span>}
         </div>
