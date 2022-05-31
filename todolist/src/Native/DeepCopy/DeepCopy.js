@@ -13,7 +13,8 @@ let person = {
     adress:{
         city:'Minsk',
         street:{
-            street: 'Lazo'
+            street: 'Lazo',
+            flat:71
         }
     }
 }
