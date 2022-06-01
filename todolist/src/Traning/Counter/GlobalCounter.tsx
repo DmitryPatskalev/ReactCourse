@@ -11,9 +11,9 @@ const GlobalCounter = ()=>{
     const [maxValue, setMaxValue] = useState<number>(1)
 
     useEffect(()=>{
-        let valueString = localStorage.getItem('valueId')
-        let valueStringMax = localStorage.getItem('valueMax')
-        let valueStringStart = localStorage.getItem('valueStart')
+        let valueString = sessionStorage.getItem('valueId')
+        let valueStringMax = sessionStorage.getItem('valueMax')
+        let valueStringStart = sessionStorage.getItem('valueStart')
         if(valueString){
             let newValue = JSON.parse(valueString)
             setValue(newValue)
@@ -29,13 +29,15 @@ const GlobalCounter = ()=>{
     },[])
 
     useEffect(()=>{
-        localStorage.setItem('valueId', JSON.stringify(value))
-    })
+        sessionStorage.setItem('valueId', JSON.stringify(value))
+        sessionStorage.setItem('valueMax', JSON.stringify(maxValue))
+        sessionStorage.setItem('valueStart', JSON.stringify(startValue))
+    },)
 
 
     return <div className='container'>
         <div className='setValueCounter'>
-            <SetValueCounter maxNum={maxValue} setMaxNum={setMaxValue} startNum={startValue} setStartNum={setStartValue}/>
+            <SetValueCounter count={setValue} maxNum={maxValue} setMaxNum={setMaxValue} startNum={startValue} setStartNum={setStartValue}/>
         </div>
         <div className='counter'>
             <Counter num={value} count={setValue} startNum={startValue} maxNum={maxValue}/>

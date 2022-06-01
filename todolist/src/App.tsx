@@ -10,12 +10,12 @@ import GlobalCounter from "./Traning/Counter/GlobalCounter";
 function App() {
   return (
     <div className="App">
-        <Todolist/>
+        {/*<Todolist/>*/}
         {/*<hr/>*/}
         {/*<SwitchOnOff/>*/}
         {/*<hr/>*/}
         {/*<StarRating/>*/}
-        {/*<GlobalCounter/>*/}
+        <GlobalCounter/>
 
 
         {/*<Callback/>*/}

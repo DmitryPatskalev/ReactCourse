@@ -3,7 +3,7 @@ import './style.css'
 
 import {CounterType} from "./Counter";
 
-export const SuperButton = (props: CounterType) => {
+export const UniversButton = (props: CounterType) => {
 
     const incButton = () => props.count(props.num + 1)
     const resetButton = () => props.count(props.startNum)
