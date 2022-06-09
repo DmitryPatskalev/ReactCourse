@@ -1,46 +1,46 @@
-.AddToDo{
-    display: flex;
-    justify-content: center;
-    width: 1300px;
-}
+/*.AddToDo{*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    width: 1300px;*/
+/*}*/
 
-.App {
-    display: flex;
+/*.App {*/
+/*    display: flex;*/
 
-}
-.App div{
-    margin: 20px;
-}
+/*}*/
+/*.App div{*/
+/*    margin: 20px;*/
+/*}*/
 
 .error {
     border: 2px solid red;
 }
-.error-message {
-    color: red
-}
-.active{
+/*.error-message {*/
+/*    color: red*/
+/*}*/
+/*.active{*/
 
-    background-color: lightgreen;
-}
-.buttonsFilter button{
-    margin: 5px;
-}
+/*    background-color: lightgreen;*/
+/*}*/
+/*.buttonsFilter button{*/
+/*    margin: 5px;*/
+/*}*/
 .isDone{
     opacity: 0.4;
 }
-.button-remove:hover{
-    background-color: red;
-}
-.button-remove{
-    margin: 5px;
-}
+/*.button-remove:hover{*/
+/*    background-color: red;*/
+/*}*/
+/*.button-remove{*/
+/*    margin: 5px;*/
+/*}*/
 
-.remTDList{
-    margin: 5px;
-}
-.remTDList:hover{
-    background-color: red;
-}
+/*.remTDList{*/
+/*    margin: 5px;*/
+/*}*/
+/*.remTDList:hover{*/
+/*    background-color: red;*/
+/*}*/
 .empty{
     font-size: 30px;
     font-family: 'Neucha', cursive;

@@ -4,6 +4,8 @@ import './../../App.css'
 import {v1} from "uuid";
 import {Tasks} from "./Tasks";
 import {AddItemForm} from "./AddItemForm";
+import {AppBar, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@material-ui/core";
+import {Menu} from "@material-ui/icons";
 
 
 export type TodoListType = {
@@ -98,33 +100,45 @@ const Todolist = () => {
             filter: 'All'
         }
         setTodoLists([todoList, ...todoLists])
-        setTask({...task,
-        [todoList.id]:[]
+        setTask({
+            ...task,
+            [todoList.id]: []
         })
     }
-    const changeTaskTitle = (todoListId:string, id:string, newValue:string) => {
+    const changeTaskTitle = (todoListId: string, id: string, newValue: string) => {
         let todolist = task[todoListId]
-        let newTask = todolist.find(elem=>elem.id === id)
-        if(newTask){
+        let newTask = todolist.find(elem => elem.id === id)
+        if (newTask) {
             newTask.title = newValue
         }
         setTask({...task})
     }
 
-    const changeTodoListTitle = (id:string, newTitle:string) => {
-      const todolist = todoLists.find(elem=>elem.id === id)
-        if(todolist){
+    const changeTodoListTitle = (id: string, newTitle: string) => {
+        const todolist = todoLists.find(elem => elem.id === id)
+        if (todolist) {
             todolist.title = newTitle
             setTodoLists([...todoLists])
         }
     }
 
-    return <div>
-        <div className='AddToDo'>
-            <AddItemForm addItem={addTodoList}/>
-        </div>
-        <div className='App'>
-            {todoLists.length? todoLists.map(tl => {
+    return <Grid>
+        <AppBar position='static'>
+            <Toolbar>
+                <IconButton edge='start' color='secondary' aria-label='menu'>
+                    <Menu/>
+                </IconButton>
+                <Typography variant='h6'>
+                    News
+                </Typography>
+            </Toolbar>
+        </AppBar>
+        <Container fixed>
+            <Grid container style={{padding:'5px'}}>
+                <AddItemForm addItem={addTodoList}/>
+            </Grid>
+        <Grid container spacing={3} >
+            {todoLists.length ? todoLists.map(tl => {
                 let filterTasks = task[tl.id]
                 if (tl.filter === 'Active') {
                     filterTasks = filterTasks.filter(elem => !elem.isDone)
@@ -132,22 +146,26 @@ const Todolist = () => {
                 if (tl.filter === 'Completed') {
                     filterTasks = filterTasks.filter((elem => elem.isDone))
                 }
-                return <Tasks
-                  key={tl.id}
-                  todolistID={tl.id}
-                  title={tl.title}
-                  tasks={filterTasks}
-                  buttonRemoveTask={buttonRemoveTask}
-                  buttonFilterTask={buttonFilterTask}
-                  addTasks={addTasks}
-                  changeStatus={changeStatus}
-                  filter={tl.filter}
-                  buttonRemTodoList={buttonRemTodoList}
-                  changeTaskTitle={changeTaskTitle}
-                  changeTodoListTitle={changeTodoListTitle}
-                />
-            }):<span className='empty'>Create your first TodoList</span>}
-        </div>
-    </div>
+                return <Grid item>
+                    <Paper key={tl.id} style={{padding:'5px'}} elevation={3} >
+                        <Tasks
+                          todolistID={tl.id}
+                          title={tl.title}
+                          tasks={filterTasks}
+                          buttonRemoveTask={buttonRemoveTask}
+                          buttonFilterTask={buttonFilterTask}
+                          addTasks={addTasks}
+                          changeStatus={changeStatus}
+                          filter={tl.filter}
+                          buttonRemTodoList={buttonRemTodoList}
+                          changeTaskTitle={changeTaskTitle}
+                          changeTodoListTitle={changeTodoListTitle}
+                        />
+                    </Paper>
+                </Grid>
+            }) : <span className='empty'>Create your first TodoList</span>}
+        </Grid>
+        </Container>
+    </Grid>
 }
 export default Todolist
