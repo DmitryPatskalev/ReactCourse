@@ -16,7 +16,7 @@ export type TodoListType = {
 
 export type FilterType = 'All' | 'Active' | 'Completed'
 
-type TodoListsType = {
+export type TodoListsType = {
     id: string
     title: string
     filter: FilterType
