@@ -13,7 +13,7 @@ export type CounterType = {
 const Counter = (props: CounterType) => {
 
     let colorNum = {
-        color: props.num === props.maxNum || props.num === props.startNum ? 'red' : ''
+        color: props.num === props.maxNum?'red':  props.num === props.startNum ? 'blue' : 'green'
     }
 
     return <div className='body'>
