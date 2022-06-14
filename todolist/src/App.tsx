@@ -21,13 +21,13 @@ function App() {
           {/*<hr/>*/}
           {/*<StarRating/>*/}
 
-          <BrowserRouter>
-              <Counters/>
-          </BrowserRouter>
+          {/*<BrowserRouter>*/}
+          {/*    <Counters/>*/}
+          {/*</BrowserRouter>*/}
 
 
           {/*<Callback/>*/}
-          {/*<Exams/>*/}
+          <Exams/>
       </div>
     );
 }
