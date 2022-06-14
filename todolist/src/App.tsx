@@ -7,29 +7,29 @@ import SwitchOnOff from "./Traning/ButtonOnOff/SwitchOnOff";
 
 import Exams from "./Exams/Exams";
 import Counters from "./Traning/Counter/Counters";
+import {BrowserRouter} from "react-router-dom";
+
 
 
 
 function App() {
-  return (
-    <div className="App">
-        {/*<Todolist/>*/}
-        {/*<hr/>*/}
-        {/*<SwitchOnOff/>*/}
-        {/*<hr/>*/}
-        {/*<StarRating/>*/}
+    return (
+      <div className="App">
+          {/*<Todolist/>*/}
+          {/*<hr/>*/}
+          {/*<SwitchOnOff/>*/}
+          {/*<hr/>*/}
+          {/*<StarRating/>*/}
+
+          <BrowserRouter>
+              <Counters/>
+          </BrowserRouter>
 
 
-            <Counters/>
-
-
-
-        {/*<Callback/>*/}
-
-
-      {/*<Exams/>*/}
-    </div>
-  );
+          {/*<Callback/>*/}
+          {/*<Exams/>*/}
+      </div>
+    );
 }
 
 

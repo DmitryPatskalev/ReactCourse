@@ -1,7 +1,4 @@
-.container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 400px;
-}
+
 .setValueCounter , .counter {
     margin: 30px;
 }
@@ -32,7 +29,7 @@
     background-color: lightgreen;
 }
 .inc, .reset , .buttonSet {
-    width: 140px;
+    width: 100px;
     height: 40px;
     margin: 10px;
     font-size: 30px;
