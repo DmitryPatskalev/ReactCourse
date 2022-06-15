@@ -15,7 +15,7 @@ import {BrowserRouter} from "react-router-dom";
 function App() {
     return (
       <div className="App">
-          {/*<Todolist/>*/}
+          <Todolist/>
           {/*<hr/>*/}
           {/*<SwitchOnOff/>*/}
           {/*<hr/>*/}
@@ -27,7 +27,7 @@ function App() {
 
 
           {/*<Callback/>*/}
-          <Exams/>
+          {/*<Exams/>*/}
       </div>
     );
 }
