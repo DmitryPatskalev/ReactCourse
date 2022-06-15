@@ -11,9 +11,9 @@ const FirstVersionCounter = ()=>{
     const [maxValue, setMaxValue] = useState<number>(1)
 
     useEffect(()=>{
-        let valueString = sessionStorage.getItem('valueId')
-        let valueStringMax = sessionStorage.getItem('valueMax')
-        let valueStringStart = sessionStorage.getItem('valueStart')
+        let valueString = localStorage.getItem('value')
+        let valueStringMax = localStorage.getItem('max')
+        let valueStringStart = localStorage.getItem('start')
         if(valueString){
             let newValue = JSON.parse(valueString)
             setValue(newValue)
@@ -29,9 +29,9 @@ const FirstVersionCounter = ()=>{
     },[])
 
     useEffect(()=>{
-        sessionStorage.setItem('valueId', JSON.stringify(value))
-        sessionStorage.setItem('valueMax', JSON.stringify(maxValue))
-        sessionStorage.setItem('valueStart', JSON.stringify(startValue))
+        localStorage.setItem('value', JSON.stringify(value))
+        localStorage.setItem('max', JSON.stringify(maxValue))
+        localStorage.setItem('start', JSON.stringify(startValue))
     },)
 
 

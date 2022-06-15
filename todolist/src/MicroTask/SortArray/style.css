@@ -1,0 +1,19 @@
+.table{
+    border: 3px solid blue;
+    margin: 20px;
+}
+.titleTable th{
+    border: 1px solid blue;
+}
+.dataTable td{
+    border: 1px solid blue;
+    text-align: center;
+}
+.place, .team{
+    width: 100px;
+    text-align: center;
+}
+.team{
+    width: 200px;
+    text-align: center;
+}

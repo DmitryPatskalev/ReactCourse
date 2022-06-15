@@ -8,6 +8,8 @@ import SwitchOnOff from "./Traning/ButtonOnOff/SwitchOnOff";
 import Exams from "./Exams/Exams";
 import Counters from "./Traning/Counter/Counters";
 import {BrowserRouter} from "react-router-dom";
+import SortArray from "./MicroTask/SortArray/SortArray";
+import ReactFundament from "./MicroTask/ReactFundament/ReactFundament";
 
 
 
@@ -15,7 +17,7 @@ import {BrowserRouter} from "react-router-dom";
 function App() {
     return (
       <div className="App">
-          <Todolist/>
+          {/*<Todolist/>*/}
           {/*<hr/>*/}
           {/*<SwitchOnOff/>*/}
           {/*<hr/>*/}
@@ -24,6 +26,8 @@ function App() {
           {/*<BrowserRouter>*/}
           {/*    <Counters/>*/}
           {/*</BrowserRouter>*/}
+          {/*<SortArray/>*/}
+          <ReactFundament/>
 
 
           {/*<Callback/>*/}
