@@ -97,20 +97,11 @@ const Todolist = () => {
         })
     }
     const changeTaskTitle = (todoListId: string, id: string, newValue: string) => {
-        let todolist = task[todoListId]
-        let newTask = todolist.find(elem => elem.id === id)
-        if (newTask) {
-            newTask.title = newValue
-        }
-        setTask({...task})
+         setTask({...task, [todoListId]:task[todoListId].map(tl=>tl.id === id? {...tl, title:newValue}:tl)})
     }
 
     const changeTodoListTitle = (id: string, newTitle: string) => {
-        const todolist = todoLists.find(elem => elem.id === id)
-        if (todolist) {
-            todolist.title = newTitle
-            setTodoLists([...todoLists])
-        }
+         setTodoLists(todoLists.map(tl=>tl.id === id? {...tl, title:newTitle}:tl))
     }
 
     return <Grid>

@@ -17,7 +17,7 @@ import ReactFundament from "./MicroTask/ReactFundament/ReactFundament";
 function App() {
     return (
       <div className="App">
-          {/*<Todolist/>*/}
+          <Todolist/>
           {/*<hr/>*/}
           {/*<SwitchOnOff/>*/}
           {/*<hr/>*/}
@@ -27,7 +27,7 @@ function App() {
           {/*    <Counters/>*/}
           {/*</BrowserRouter>*/}
           {/*<SortArray/>*/}
-          <ReactFundament/>
+          {/*<ReactFundament/>*/}
 
 
           {/*<Callback/>*/}
