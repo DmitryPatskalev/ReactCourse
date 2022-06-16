@@ -10,6 +10,7 @@ import Counters from "./Traning/Counter/Counters";
 import {BrowserRouter} from "react-router-dom";
 import SortArray from "./MicroTask/SortArray/SortArray";
 import ReactFundament from "./MicroTask/ReactFundament/ReactFundament";
+import ExperimentTable from "./MicroTask/ExperimentsTodolist/ExperimentTable";
 
 
 
@@ -17,7 +18,7 @@ import ReactFundament from "./MicroTask/ReactFundament/ReactFundament";
 function App() {
     return (
       <div className="App">
-          <Todolist/>
+          {/*<Todolist/>*/}
           {/*<hr/>*/}
           {/*<SwitchOnOff/>*/}
           {/*<hr/>*/}
@@ -32,6 +33,8 @@ function App() {
 
           {/*<Callback/>*/}
           {/*<Exams/>*/}
+
+          <ExperimentTable/>
       </div>
     );
 }

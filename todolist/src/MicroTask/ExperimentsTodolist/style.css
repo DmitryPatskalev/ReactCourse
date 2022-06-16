@@ -1,0 +1,38 @@
+.table {
+    margin: 20px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.tr th{
+    border-bottom: 3px solid green;
+}
+.teamNames{
+    text-align: left;
+}
+.body{
+    font-family:Arial, sans-serif;
+}
+.tr td {
+    border-bottom: 1px solid green;
+}
+
+.rank {
+    width: 30px;
+}
+.team {
+    width: 200px;
+    font-family: 'Neucha', cursive;
+
+}
+.MP, .W, .D, .L, .PTS {
+    width: 100px;
+    font-family: 'Neucha', cursive;
+}
+
+
+.gerb img{
+    width: 20px;
+    height: 20px;
+   padding-right: 10px;
+}
