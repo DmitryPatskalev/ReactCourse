@@ -18,7 +18,7 @@ import ExperimentTable from "./MicroTask/ExperimentsTodolist/ExperimentTable";
 function App() {
     return (
       <div className="App">
-          {/*<Todolist/>*/}
+          <Todolist/>
           {/*<hr/>*/}
           {/*<SwitchOnOff/>*/}
           {/*<hr/>*/}
@@ -34,7 +34,7 @@ function App() {
           {/*<Callback/>*/}
           {/*<Exams/>*/}
 
-          <ExperimentTable/>
+          {/*<ExperimentTable/>*/}
       </div>
     );
 }
