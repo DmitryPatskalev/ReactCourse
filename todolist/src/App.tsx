@@ -14,8 +14,7 @@ import ExperimentTable from "./MicroTask/ExperimentsTodolist/ExperimentTable";
 import CounterRedux from "./ReduxCounter/BLL/CounterRedux";
 import {Provider} from "react-redux";
 import {store} from "./ReduxCounter/BLL/store";
-
-
+import CountMoney from "./ReactRedux/CountMoney";
 
 
 function App() {
@@ -40,7 +39,8 @@ function App() {
           {/*<ExperimentTable/>*/}
 
           <Provider store={store}>
-              <CounterRedux/>
+              <CountMoney/>
+              {/*<CounterRedux/>*/}
           </Provider>
       </div>
     );
