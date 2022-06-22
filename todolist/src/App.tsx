@@ -11,6 +11,9 @@ import {BrowserRouter} from "react-router-dom";
 import SortArray from "./MicroTask/SortArray/SortArray";
 import ReactFundament from "./MicroTask/ReactFundament/ReactFundament";
 import ExperimentTable from "./MicroTask/ExperimentsTodolist/ExperimentTable";
+import CounterRedux from "./ReduxCounter/BLL/CounterRedux";
+import {Provider} from "react-redux";
+import {store} from "./ReduxCounter/BLL/store";
 
 
 
@@ -18,7 +21,7 @@ import ExperimentTable from "./MicroTask/ExperimentsTodolist/ExperimentTable";
 function App() {
     return (
       <div className="App">
-          <Todolist/>
+          {/*<Todolist/>*/}
           {/*<hr/>*/}
           {/*<SwitchOnOff/>*/}
           {/*<hr/>*/}
@@ -35,6 +38,10 @@ function App() {
           {/*<Exams/>*/}
 
           {/*<ExperimentTable/>*/}
+
+          <Provider store={store}>
+              <CounterRedux/>
+          </Provider>
       </div>
     );
 }
